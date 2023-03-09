@@ -17,10 +17,14 @@ public class Vehicle {
         return passengers;
     }
 
-
+    public void printInfo(){
+        System.out.println("License Plate: " +licensePlate);
+        System.out.println("Toll Fee: " + tollFee);
+        System.out.println("Passengers: " + passengers);
+    }
 
     public double calculateTollPrice() {
-        return tollFee * passengers;
+      return tollFee * passengers;
     }
 
     public double getTollFee(){
