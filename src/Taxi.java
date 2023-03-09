@@ -1,13 +1,12 @@
 public class Taxi extends Car{
 
     private double fareCollected;
-    private boolean discountApplied;
+
 
 
     public Taxi(String licensePlate, double tollFee, int passengers, boolean electric, double fareCollected){
         super(licensePlate, tollFee, passengers, electric);
         this.fareCollected = fareCollected;
-        this.discountApplied = false;
     }
 
     public void printTaxi(){
@@ -22,13 +21,14 @@ public class Taxi extends Car{
 
     public void pickupRiders(int numRiders, double farePerRider){
         int currentPassengers = getPassengers();
-        setPassengers(currentPassengers += numRiders);
-        if(currentPassengers >= 4){
-            farePerRider /= 2;
-            discountApplied = true;
+        setPassengers(currentPassengers + numRiders);
+
+        if(!isDiscountApplied() && getPassengers() >= 4){
+            setTollFee(getTollFee()/2);
+            setDiscountApplied(true);
         }
-        applyDiscount();
-        fareCollected += currentPassengers * farePerRider;
+
+        fareCollected += (numRiders * farePerRider);
     }
 
     public double getFareCollected(){

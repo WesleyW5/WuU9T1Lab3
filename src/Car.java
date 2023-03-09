@@ -16,6 +16,10 @@ public class Car extends Vehicle {
         return discountApplied;
     }
 
+    public void setDiscountApplied(boolean discountApplied) {
+        this.discountApplied = discountApplied;
+    }
+
     public void printCar(){
         System.out.println();
         System.out.println("License Plate: " + getLicensePlate());
